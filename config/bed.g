@@ -10,7 +10,8 @@ G28 X Y ; home x y
 M106 P0 S255 ; enable fan0 to prevent temp drift of probe
 G1 Z20 F3600 ; raise z to probe
 G30 P0 X105 Y215.5 Z-99999 ; probe near a leadscrew, half way along Y axis
-G30 P1 X740 Y215.5 Z-99999 S2 ; probe near a leadscrew and calibrate 2 motors
+G30 P1 X740 Y380.5 Z-99999 ; probe near sec. leadscrew
+G30 P2 X740 Y50.5 Z-99999 S3 ; probe near third leadscrew and calibrate 2 motors
 
 ; G29  ; probe the bed and enable compensation
 

@@ -16,7 +16,7 @@ M98 P"0:/macros/05-Align-Z-Axis"
 
 G90                 ; absolute positioning
 G1 X417.5 Y197.5 F6000 ; go to bed center probe point
-G1 Z15 F6000     ; drive Z to 25 position
+G1 Z15 F6000     ; drive Z to 15 position
 ;G4 S10 ; wait 10sec for temp to stabilize
 
 G30 X417.5 Y214.5
