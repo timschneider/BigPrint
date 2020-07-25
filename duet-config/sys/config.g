@@ -61,7 +61,7 @@ M591 D0 P1 C"e1stop" S1                                 ; enable filament sensor
 
 ; Led
 M950 P0 C"duex.e2heat"                                  ; Configure P0 as output for LED Strip
-M42 P0 S0.5                                             ; Set LEDs to 50%
+M42 P0 S0.25                                             ; Set LEDs to 25%
 
 ; Z-Probe
 M558 P1 C"zprobe.in" H4 F120 T3600 A1                   ; set Z probe type to unmodulated and the dive height + speeds probe every point one times
