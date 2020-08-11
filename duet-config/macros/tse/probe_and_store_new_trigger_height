@@ -1,0 +1,11 @@
+G90                                                             ; absolute position
+M291 P"Make sure, that the printbed is free!" S3                ; ask operator to jog to z=0
+M561                                                            ; clear any bed transform
+G29 S2                                                          ; Clear height compensation
+M290 R0 S0                                                      ; clear babystepping
+G1 X{move.axes[0].max/2} Y{move.axes[1].max/2} F5000            ; position nozzle
+M291 P"Jog Z to Zero" R"Z-Zero" S3 Z1                           ; ask operator to jog to z=0
+G92 Z0                                                          ; set Z = 0
+G1 Z5 F300                                                      ; move Z 5mm away
+G30 X{move.axes[0].max/2} Y{move.axes[1].max/2} S-3             ; Set new trigger height
+M500 P31                                                        ; Store new trigger height
