@@ -2,7 +2,7 @@ M566 P0                 ; disable jerk
 M561                    ; clear any bed transform
 G29 S2                  ; Clear height compensation
 M290 R0 S0              ; clear babystepping
-M203 Z300.00            ; reduce z speed
+M203 Z600.00            ; reduce z speed
 M201 Z48.00             ; reduce acceleration
 G29                     ; create height map
 M566 P1                 ; enable jerk

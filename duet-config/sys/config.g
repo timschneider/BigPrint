@@ -37,8 +37,8 @@ M584 X0 Y1 Z2:3:4 E5                                    ; set drive mapping
 
 M350 E16 I1                                             ; configure microstepping with interpolation
 M350 Z16 I1                                             ; configure microstepping with interpolation
-M350 X64 Y64 I0                                         ; configure microstepping without interpolation
-M92 X320 Y320 Z400 E824                                 ; set steps per mm
+M350 X16 Y16 I1                                         ; configure microstepping without interpolation
+M92 X80 Y80 Z400 E807.5                                 ; set steps per mm
 M566 X480.0 Y480.0 Z12.00 E2400.00 P1                   ; set maximum instantaneous speed changes (mm/min) and apply jerk on every move
 M593 F24.8                                              ; cancle ringing at 24.8Hz
 M203 X14400.00 Y14400.00 Z1250.00 E7200.00              ; set maximum speeds (mm/min)
@@ -49,7 +49,7 @@ M84 S30                                                 ; Set idle timeout
 
 ; Axis Limits
 M208 X0 Y0 Z0 S1                                        ; set axis minima
-M208 X855 Y405 Z396 S0                                  ; set axis maxima
+M208 X840 Y405 Z396 S0                                  ; set axis maxima
 
 ; Endstops
 M574 X1 S1 P"xstop"                                     ; configure active-high endstop for low end on X via pin xstop
@@ -110,10 +110,10 @@ G10 P0 X0 Y0 Z0                                         ; set tool 0 axis offset
 G10 P0 R0 S0                                            ; set initial tool 0 active and standby temperatures to 0C
 
 ; Z-Probe
-M558 P1 C"zprobe.in" H4 F120 T3600 A1                   ; set Z probe type to unmodulated and the dive height + speeds probe every point one times
+M558 P1 C"zprobe.in" H4 F240 T10000 A3                  ; set Z probe type to unmodulated and the dive height + speeds probe every point three times
 G31 P500 X8.6 Y25.5 Z2.0 C0.00118 S87.5 H0              ; set Z probe trigger value, offset and trigger height, try to set it to whole number of x/8mm pitch/200 steps-rev / 16 micro-step 
-M557 X{sensors.probes[0].offsets[0]}:{move.axes[0].max-sensors.probes[0].offsets[0]} Y{sensors.probes[0].offsets[1]}:{move.axes[1].max-sensors.probes[0].offsets[1]} P14:7                        ; define mesh grid
-M376 H10                                                ; taper out z correction over 10mm height
+M557 X{sensors.probes[0].offsets[0]}:{move.axes[0].max-sensors.probes[0].offsets[0]} Y{sensors.probes[0].offsets[1]}:{move.axes[1].max-sensors.probes[0].offsets[1]} P18:8                        ; define mesh grid
+M376 H15                                                ; taper out z correction over 10mm height
 
 M915 X Y S5 F0 R3 H200                                  ; configure stall detection on X and Y without Filter (1 Full Steps)
                                                         ; and min 200 steps/sec (40mm/sec) (concider motor current 1A) and execute rehome.g on stall
@@ -124,7 +124,7 @@ M207 S1.0 R0.0 F1620 T840 Z0.1                          ; Use Firmware retract w
 M572 D0 S0.0                                            ; pressure advance
 
 M911 S23.4 R23.8 P"M913 X0 Y0 Z10 E10 G91 M83 G1 Z390 E-20 F1500" ; configure power safe mode
-M671 X-150.0:915.0:915.0 Y215.5:380.5:50.5 S1.25        ; Z leadscrews are at (-150,215.5), (915,50.5) and (915,380.5)
+M671 X-150.0:915.0:915.0 Y208.5:373.5:43.5 S1.25        ; Z leadscrews are at (-150,215.5), (915,50.5) and (915,380.5)
 
 M592 D0 A0.01 B0.0005                                   ; Configure nonlinear extrusion
 
