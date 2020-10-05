@@ -9,5 +9,6 @@ G91                                         ; relative positioning
 G1 Z100 F1200                               ; lift Z by 100mm
 G90                                         ; absolute positioning
 G1 X{(move.axes[0].max-100)} Y100 F6000     ; go to X=750 Y=0
+T-1                                         ; put current tool into standby
 M121                                        ; pop stored settings from stack
 
