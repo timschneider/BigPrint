@@ -43,7 +43,7 @@ M566 X480.0 Y480.0 Z12.00 E2400.00 P1                   ; set maximum instantane
 M593 F24.8                                              ; cancle ringing at 24.8Hz
 M203 X14400.00 Y14400.00 Z1250.00 E7200.00              ; set maximum speeds (mm/min)
 M201 X1500.00 Y1500.00 Z72.00 E4200.00                  ; set accelerations (mm/s^2)
-M204 P800 T2000                                         ; Set printing and travel accelerations
+M204 P800 T1250                                         ; Set printing and travel accelerations
 M906 X1500 Y1500 Z2300:2300:2300 E1300 I30              ; set motor currents (mA) and motor idle factor in per cent
 M84 S30                                                 ; Set idle timeout
 
@@ -115,7 +115,7 @@ G31 P500 X8.6 Y25.5 Z2.0 C0.00118 S87.5 H0              ; set Z probe trigger va
 M557 X{sensors.probes[0].offsets[0]}:{move.axes[0].max-sensors.probes[0].offsets[0]} Y{sensors.probes[0].offsets[1]}:{move.axes[1].max-sensors.probes[0].offsets[1]} P18:8                        ; define mesh grid
 M376 H15                                                ; taper out z correction over 10mm height
 
-M915 X Y S5 F0 R3 H200                                  ; configure stall detection on X and Y without Filter (1 Full Steps)
+M915 X Y S7 F0 R3 H200                                  ; configure stall detection on X and Y without Filter (1 Full Steps)
                                                         ; and min 200 steps/sec (40mm/sec) (concider motor current 1A) and execute rehome.g on stall
 M915 Z S2 F0 R1                                         ; configure stall detection on Z and log it
 ;M200 D2.85 ; set filament diameter to 2.85mm
