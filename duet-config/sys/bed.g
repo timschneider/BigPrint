@@ -15,7 +15,7 @@ G30 P0 X105 Y{move.kinematics.tiltCorrection.screwY[0]-50} Z-99999         ; pro
 G30 P1 X105 Y{move.kinematics.tiltCorrection.screwY[0]} Z-99999            ; probe near a leadscrew, half way along Y axis
 G30 P2 X105 Y{move.kinematics.tiltCorrection.screwY[0]+50} Z-99999         ; probe near a leadscrew, half way along Y axis
 G30 P3 X740 Y{move.kinematics.tiltCorrection.screwY[1]} Z-99999            ; probe near sec. leadscrew
-G30 P5 X740 Y{move.kinematics.tiltCorrection.screwY[2]} Z-99999 S3         ; probe near third leadscrew and calibrate 2 motors
+G30 P4 X740 Y{move.kinematics.tiltCorrection.screwY[2]} Z-99999 S3         ; probe near third leadscrew and calibrate 2 motors
 
 ; G29  ; probe the bed and enable compensation
 
