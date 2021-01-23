@@ -1,6 +1,6 @@
 G91                     ; relative position
 M400                    ; make sure everything has stopped before we reset the motor currents
-M913 Z30                ; set motor current to 30%
+M913 Z40                ; set motor current to 40%
 G1 H3 Z405 F1250        ; lower z axis
 M400                    ; make sure everything has stopped before we reset the motor currents
 M913 Z100               ; motor currents back to normal
