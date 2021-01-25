@@ -1,7 +1,6 @@
 M107                                    ; fan off
 
 M144 P0 S1                              ; activate bed 1 heater
-M144 P1 S1                              ; activate bed 2 heater
 
 T0                                      ; select tool 0
 
