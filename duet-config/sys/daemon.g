@@ -18,8 +18,8 @@ if state.status == "paused"
 elif state.status == "idle"
   M42 P0 S0.3
 elif state.status == "processing"
-  ; test if doorswitch #1 is opened
-  if sensors.gpIn[1].value == 0 && abs(move.axes[2].machinePosition - state.restorePoints[0].coords[2]) > 6.0
+  ; test if doorswitch #1 or #2 is opened
+  if (sensors.gpIn[2].value == 0 || sensors.gpIn[3].value == 0 ) && abs(move.axes[2].machinePosition - state.restorePoints[0].coords[2]) > 6.0
     ; Bed has moved more than 6mm while door is opened 
     M112 ; emergency stop
 else
