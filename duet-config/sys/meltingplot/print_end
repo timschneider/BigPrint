@@ -1,4 +1,4 @@
-G10             ;Retract the filament
+G10             ; Retract the filament
 
 G10 P0 R0 S0    ; disable hotend
 M140 P0 S-274   ; disable left heater

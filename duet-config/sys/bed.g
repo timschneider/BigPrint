@@ -5,7 +5,7 @@
 M561                                  ; clear any bed transform
 G29 S2                                ; Clear height compensation
 M290 R0 S0                            ; clear babystepping
-M98 P"0:/macros/tse/align_z_axis"     ; align z axis
+M98 P"0:/sys/meltingplot/align_z_axis"     ; align z axis
 if move.axes[0].homed == false
   M98 P"0:/sys/homex.g"
 if move.axes[1].homed == false

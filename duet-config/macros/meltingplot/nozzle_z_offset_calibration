@@ -16,7 +16,7 @@ G30 X{move.axes[0].max/2} Y{move.axes[1].max/2} S-3             ; Set new trigge
 M500 P31                                                        ; Store new trigger height
 M291 P"The Printbed will not set its new limits be driving from Z=0 to Z=MAX!" S2
 G1 Z0 F300                                                      ; drive to Zero
-M98 P"0:/macros/tse/set_new_z_height"                           ; set new z height
+M98 P"0:/sys/meltingplot/set_new_z_height"                           ; set new z height
 M564 S1                                                         ; enable boundaries
 M291 P"Procedure completed! The printer will now restart" S2
 M999                                                            ; Restart the Printer
