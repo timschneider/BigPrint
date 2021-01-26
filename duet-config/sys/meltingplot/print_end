@@ -1,8 +1,7 @@
 G10             ; Retract the filament
 
 G10 P0 R0 S0    ; disable hotend
-M140 P0 S-274   ; disable left heater
-M140 P1 S-274   ; disable right heater 
+M140 P0 S-274   ; disable bed heater
 T-1             ; deselect all tools
 
 G28 X Y         ; home x and y

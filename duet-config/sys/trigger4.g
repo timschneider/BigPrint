@@ -1,3 +1,6 @@
+; THIS FILE CONTAINS CE RELEVANT CONFIGURATIONS, ANY CHANGES TO THIS FILE MAY RESULT IN A LOST OF THE CE DECLARATION
+
+
 ; Left Door opened
 ;state.status == "idle"
 ;state.status == "busy" --> this is homing / macro work / tool change etc.

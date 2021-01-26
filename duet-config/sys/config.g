@@ -57,12 +57,7 @@ M574 X1 S1 P"xstop"                                     ; configure active-high 
 M574 Y2 S1 P"ystop"                                     ; configure active-high endstop for high end on Y via pin ystop
 ;M574 Z1 S2                                             ; configure Z-probe endstop for low end on Z
 M574 Z2 S4                                              ; configure sensorless endstop on high end of Z
-M950 J0 C"^e0stop"
-M581 T2 P0 S1 R0                                        ; configure E0 as emergency stop
 M591 D0 P1 C"e1stop" S1                                 ; enable filament sensor on E0 as active high
-M950 J1 C"^duex.e2stop"                                  ; create doorswitch #1
-M581 T3 P1 S1 R0                                        ; configure E1 as door switch (door closed)
-M581 T4 P1 S0 R0                                        ; configure E1 as door switch (door opened)
 
 ; Led
 M950 P0 C"!exp.heater4"                                 ; Configure P0 as output for LED Strip
@@ -110,8 +105,9 @@ M376 H15                                                ; taper out z correction
 M915 X Y S7 F0 R3 H200                                  ; configure stall detection on X and Y without Filter (1 Full Steps)
                                                         ; and min 200 steps/sec (40mm/sec) (concider motor current 1A) and execute rehome.g on stall
 M915 Z S3 F0 R0                                         ; configure stall detection on Z for sensor less homing
-;M200 D2.85 ; set filament diameter to 2.85mm
-M200 D0 ; disable volumetric extrusion cause its faulty in firmware
+
+;M200 D2.85                                             ; set filament diameter to 2.85mm
+M200 D0                                                 ; disable volumetric extrusion cause its faulty in firmware
 M207 S1.0 R0.0 F1620 T840 Z0.1                          ; Use Firmware retract with 1.0mm retract, 0.0mm additional unretract at retract 1620 mm/min, 840 unretract and 0.1 Z-Lift
 M572 D0 S0.0                                            ; pressure advance
 
@@ -124,5 +120,4 @@ M592 D0 A0.01 B0.0005                                   ; Configure nonlinear ex
 M501                                                    ; load saved parameters from non-volatile memory
 G31 C0.00118 S87.5 H0                                   ; temp coefficent and calib temp are not stored in override
 
-M582 T2                                                 ; check external e-stop, break if already hit
-M582 T4                                                 ; check door switch
+M98 P"0:/sys/meltingplot/ce-declaration"                ; Load CE Requirements
