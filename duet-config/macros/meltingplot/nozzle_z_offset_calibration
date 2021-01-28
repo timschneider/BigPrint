@@ -1,3 +1,4 @@
+M98 P"0:/sys/meltingplot/check_doors_closed"                    ; check that both doors are closed
 G90                                                             ; absolute position
 M291 P"You <b>must</b> finish the procedure, cancellations beyound this message are not possible, if for any reason the procedure is <i>interrupted</i>, <b>the printer is left in an undefined state and you have to follow the initial calibration procedure!</b>" S3
 M291 P"Any Machine compensations and boundaries will be disabled! Warning: <b>You can move the Printhead into the Printbed!</b>" S2
@@ -14,9 +15,9 @@ G1 Z5 F300                                                      ; move Z 5mm awa
 M291 P"Remove the calibration card from the printbed" S2
 G30 X{move.axes[0].max/2} Y{move.axes[1].max/2} S-3             ; Set new trigger height
 M500 P31                                                        ; Store new trigger height
-M291 P"The Printbed will not set its new limits be driving from Z=0 to Z=MAX!" S2
+M291 P"The Printbed will now set its new limits by driving from Z=0 to Z=MAX!" S2
 G1 Z0 F300                                                      ; drive to Zero
-M98 P"0:/sys/meltingplot/set_new_z_height"                           ; set new z height
+M98 P"0:/sys/meltingplot/set_new_z_height"                      ; set new z height
 M564 S1                                                         ; enable boundaries
 M291 P"Procedure completed! The printer will now restart" S2
 M999                                                            ; Restart the Printer
