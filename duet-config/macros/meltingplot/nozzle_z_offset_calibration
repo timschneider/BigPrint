@@ -1,6 +1,6 @@
 M98 P"0:/sys/meltingplot/check_doors_closed"                    ; check that both doors are closed
 G90                                                             ; absolute position
-M291 P"You <b>must</b> finish the procedure, cancellations beyound this message are not possible, if for any reason the procedure is <i>interrupted</i>, <b>the printer is left in an undefined state and you have to follow the initial calibration procedure!</b>" S3
+M291 P"You <b>must</b> finish this procedure, if for any reason the procedure is <i>interrupted</i>, <b>the printer state is undefined and you have to follow the initial calibration!</b>" S3
 M291 P"Any Machine compensations and boundaries will be disabled! Warning: <b>You can move the Printhead into the Printbed!</b>" S2
 M291 P"Make sure, that the printbed is free! The printhead will be moved to the left probe point." S2 
 G1 X{105-sensors.probes[0].offsets[0]} Y{move.kinematics.tiltCorrection.screwY[0]-sensors.probes[0].offsets[1]} F5000

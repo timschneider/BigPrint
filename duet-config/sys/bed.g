@@ -20,4 +20,4 @@ G30 P4 X{move.axes[0].max-10} Y{move.kinematics.tiltCorrection.screwY[2]} Z-9999
 
 ; G29  ; probe the bed and enable compensation
 
-
+G29 S1                                    ; load stored height map

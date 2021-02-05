@@ -5,7 +5,7 @@ M140 P0 S-274                       ; disable bed heater
 T-1                                 ; deselect all tools
 
 G28 X Y                             ; home x and y
-G1 Z{(move.axes[2].max-0.5)} F1250  ; lift z
+G1 Z{(move.axes[2].max)} F1250      ; lift z
 G1 X840                             ; move gantry away from camera
 
 ;M84                                ; turn off motors

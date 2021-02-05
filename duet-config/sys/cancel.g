@@ -10,4 +10,4 @@ M107                                ; disable fan
 G90                                 ; absolute position
 
 if (sensors.gpIn[2].value == 1 && sensors.gpIn[3].value == 1 )
-  G1 Z{(move.axes[2].max-0.5)} F1250  ; lift z  ; move only if both doors are closed
+  G1 Z{(move.axes[2].max)} F1250    ; lift z  ; move only if both doors are closed
