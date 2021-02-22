@@ -74,20 +74,22 @@ M950 H0 C"duex.fan3" T0 Q10                             ; create bed heater outp
 M307 H0 A65.4 C210.5 D1.0 S1.00 V24.4 B0                ; disable bang-bang mode for the left bed heater and set PWM limit
 M140 P0 H0                                              ; map heater0 to bed
 M143 H0 S120                                            ; set temperature limit for heater 0 to 120C
+M570 H0 P5 T10 S10                                      ; Enable heater fault detection (Trigger Time 5sec, temp deviation 10°, cancel print after 10min) 
 
 ; Hotend
 M308 S2 P"spi.cs1" Y"rtd-max31865" A"hotend"            ; configure sensor 2 as thermistor on pin bedtemp
 M950 H1 C"bedheat" T2                                   ; create nozzle heater output on bedheat and map it to sensor 2
 M143 H1 S285                                            ; set temperature limit for heater 2 to 285C
 M307 H1 A323.8 C188.4 D4.9 S1.00 V24.3 B0               ; disable bang-bang mode for the nozzle heater and set PWM limit
+M570 H1 P5 T15 S10                                      ; Enable heater fault detection (Trigger Time 5sec, temp deviation 15°, cancel print after 10min) 
 
 M308 S3 Y"mcu-temp" A"mcu-temp"                         ; configure sensor 3 as temp sens for the mcu
 
 ; Fans
 M950 F0 C"fan0" Q500                                    ; create fan 0 (cooling fan) on pin fan0 and set its frequency
 M106 P0 S0 H-1                                          ; set fan 0 value. Thermostatic control is turned off
-M950 F1 C"fan1" Q20000                                  ; create fan 1 (radiator fan) on pin fan1 and set its frequency
-M106 P1 S1 H0 T45 L0.5 X0.7                             ; set fan 1 value. Thermostatic control is turned on
+M950 F1 C"fan1" Q25000                                  ; create fan 1 (radiator fan) on pin fan1 and set its frequency
+M106 P1 H2 T45 L0.35 X0.7 B0.25                         ; set fan 1 value. Thermostatic control is turned on
 M950 F2 C"fan2" Q500                                    ; create fan 2 (duet internal fan) on pin fan0 and set its frequency
 M106 P2 S1 H3 T30 L0.3 X1.0                             ; set fan 2 value. Thermostatic control is turned on
 
