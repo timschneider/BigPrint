@@ -18,5 +18,5 @@ if (state.status == "busy" && move.currentMove.requestedSpeed > 0 ) || (state.st
 elif state.status == "processing"
   M25 ; pause current print
 
-M203 Z60  ; slow down z movement
+M203 Z30  ; slow down z movement
 M220 S10  ; slow down to 10%
