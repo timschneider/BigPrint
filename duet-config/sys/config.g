@@ -86,11 +86,11 @@ M570 H1 P5 T15 S10                                      ; Enable heater fault de
 M308 S3 Y"mcu-temp" A"mcu-temp"                         ; configure sensor 3 as temp sens for the mcu
 
 ; Fans
-M950 F0 C"fan0" Q500                                    ; create fan 0 (cooling fan) on pin fan0 and set its frequency
+M950 F0 C"fan0" Q1000                                   ; create fan 0 (cooling fan) on pin fan0 and set its frequency
 M106 P0 S0 H-1                                          ; set fan 0 value. Thermostatic control is turned off
 M950 F1 C"fan1" Q25000                                  ; create fan 1 (radiator fan) on pin fan1 and set its frequency
 M106 P1 H2 T45 L0.35 X0.7 B0.25                         ; set fan 1 value. Thermostatic control is turned on
-M950 F2 C"fan2" Q500                                    ; create fan 2 (duet internal fan) on pin fan0 and set its frequency
+M950 F2 C"fan2" Q16000                                  ; create fan 2 (duet internal fan) on pin fan0 and set its frequency
 M106 P2 S1 H3 T30 L0.3 X1.0                             ; set fan 2 value. Thermostatic control is turned on
 
 ; Tools
