@@ -10,6 +10,9 @@
 ; - check if the switch is configured as active high M581 T2 P0 S1 R0
 ; - test the current state of the switch M582 Tx
 
+if ( sensors.gpIn[0].value != 0 || sensors.gpIn[1].value != 0 )
+  M112 ; emergency shutdown
+
 if state.status == "paused"
   if mod(state.upTime,20) >= 10
     M42 P0 S{1.0-((mod(state.upTime,20)-10)/10.0)}
@@ -17,7 +20,7 @@ if state.status == "paused"
     M42 P0 S{max(0.1, mod(state.upTime,10)/10.0)}
 elif state.status == "idle"
   M42 P0 S0.3
-elif state.status == "processing"
+elif (state.status == "processing" || state.status == "pausing" || state.status == "resuming" || state.status == "starting")
   M42 P0 S1.0 ; turn LED on 100%
   ; test if doorswitch #1 or #2 is opened
   if (sensors.gpIn[2].value == 0 || sensors.gpIn[3].value == 0 ) && abs(move.axes[2].machinePosition - state.restorePoints[5].coords[2]) > 6.0
