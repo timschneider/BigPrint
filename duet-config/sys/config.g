@@ -61,7 +61,7 @@ M574 Z2 S4                                              ; configure sensorless e
 M591 D0 P1 C"e1stop" S1                                 ; enable filament sensor on E0 as active high
 
 ; Led
-M950 P0 C"!exp.heater4"                                 ; Configure P0 as output for LED Strip
+M950 P0 C"!exp.heater5"                                 ; Configure P0 as output for LED Strip
 M42 P0 S0.25                                            ; Set LEDs to 25%
 
 ; ATX PS_ON

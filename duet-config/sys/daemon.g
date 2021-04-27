@@ -11,7 +11,8 @@
 ; - test the current state of the switch M582 Tx
 
 if ( sensors.gpIn[0].value != 0 || sensors.gpIn[1].value != 0 )
-  M112 ; emergency shutdown
+  M117 "Enable E-Stop Check in Production! Go to /sys/daemon and enable M112"
+  ; M112 ; emergency shutdown
 
 if state.status == "paused"
   if mod(state.upTime,20) >= 10
