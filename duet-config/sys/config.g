@@ -121,6 +121,7 @@ M592 D0 A0.00 B0.0112 L0.2                              ; non linear extrusion
 ; Miscellaneous
 M501                                                    ; load saved parameters from non-volatile memory
 G31 C0.00118 S87.5 H0                                   ; temp coefficent and calib temp are not stored in override
+M929 P"0:/eventlog.log" S1                              ; Enable Event Logging
 
 M98 P"0:/sys/meltingplot/machine-override"              ; Load Machine specific overrides
 M98 P"0:/sys/meltingplot/ce-declaration"                ; Load CE Requirements
