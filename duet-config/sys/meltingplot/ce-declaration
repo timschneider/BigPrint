@@ -23,5 +23,5 @@ M117 "Enable E-Stop Check in Production! Go to /sys/meltingplot/ce-declaration a
 ;M582 T2                                                 ; check external e-stop, break if already hit
 
 M913 X100 Y100 Z100                                     ; revert motor currents to 100%
-M42 P3 S0                                               ; Enable 230V Relais
+M42 P3 S1                                               ; Enable 230V Relais
 M582 T4                                                 ; check door switch
