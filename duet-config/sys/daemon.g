@@ -14,6 +14,11 @@ if ( sensors.gpIn[0].value != 0 || sensors.gpIn[1].value != 0 )
   M117 "Enable E-Stop Check in Production! Go to /sys/daemon and enable M112"
   ; M112 ; emergency shutdown
 
+; test if doorswitch #1 or #2 is opened
+if (sensors.gpIn[2].value == 0 || sensors.gpIn[3].value == 0 ) && abs(move.axes[2].machinePosition - state.restorePoints[5].coords[2]) > 6.0
+  ; Bed has moved more than 6mm while door is opened 
+  M112 ; emergency stop
+
 if state.status == "paused"
   if mod(state.upTime,20) >= 10
     M42 P0 S{1.0-((mod(state.upTime,20)-10)/10.0)}
@@ -21,11 +26,7 @@ if state.status == "paused"
     M42 P0 S{max(0.1, mod(state.upTime,10)/10.0)}
 elif state.status == "idle"
   M42 P0 S0.3
-elif (state.status == "processing" || state.status == "pausing" || state.status == "resuming" || state.status == "starting")
-  M42 P0 S1.0 ; turn LED on 100%
-  ; test if doorswitch #1 or #2 is opened
-  if (sensors.gpIn[2].value == 0 || sensors.gpIn[3].value == 0 ) && abs(move.axes[2].machinePosition - state.restorePoints[5].coords[2]) > 6.0
-    ; Bed has moved more than 6mm while door is opened 
-    M112 ; emergency stop
+  ; elif (state.status == "processing" || state.status == "pausing" || state.status == "resuming" || state.status == "starting")
+  ;   M42 P0 S1.0 ; turn LED on 100%
 else
   M42 P0 S1.0 ; turn LED on 100%
