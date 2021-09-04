@@ -19,6 +19,8 @@ M551 P"meltingplot"                                      ; set password
 
 ; Network WiFi
 ; send the following M587 via Serial Connection to the Duet
+; M552 S0 ; put wifi into ide
+; G4 S5 ; wait 5 seconds
 ; M587 S"SSID" P"password"
 M552 S1                                                 ; enable network
 
@@ -51,7 +53,7 @@ M84 S30                                                 ; Set idle timeout
 
 ; Axis Limits
 M208 X0 Y0 Z0 S1                                        ; set axis minima
-M208 X840 Y405 Z396 S0                                  ; set axis maxima
+M208 X851 Y405 Z396 S0                                  ; set axis maxima
 
 ; Endstops
 M574 X1 S1 P"xstop"                                     ; configure active-high endstop for low end on X via pin xstop
@@ -84,7 +86,7 @@ M570 H0 P5 T10 S10                                      ; Enable heater fault de
 
 ; Hotend
 M308 S2 P"spi.cs1" Y"rtd-max31865" A"hotend"            ; configure sensor 2 as thermistor on pin bedtemp
-M950 H1 C"bedheat" T2                                   ; create nozzle heater output on bedheat and map it to sensor 2
+M950 H1 C"!exp.heater3" T2                              ; create nozzle heater output on exp.heater3 and map it to sensor 2
 M143 H1 S285                                            ; set temperature limit for heater 2 to 285C
 M307 H1 A323.8 C188.4 D4.9 S1.00 V24.3 B0               ; disable bang-bang mode for the nozzle heater and set PWM limit
 M570 H1 P5 T15 S10                                      ; Enable heater fault detection (Trigger Time 5sec, temp deviation 15°, cancel print after 10min) 
