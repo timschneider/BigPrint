@@ -98,8 +98,8 @@ M950 F0 C"fan0" Q1000                                   ; create fan 0 (cooling 
 M106 P0 S0 H-1                                          ; set fan 0 value. Thermostatic control is turned off
 M950 F1 C"fan1" Q25000                                  ; create fan 1 (radiator fan) on pin fan1 and set its frequency
 M106 P1 H2 T45 L0.35 X0.7 B0.25                         ; set fan 1 value. Thermostatic control is turned on
-M950 F2 C"fan2" Q16000                                  ; create fan 2 (duet internal fan) on pin fan0 and set its frequency
-M106 P2 S1 H3 T30 L0.3 X1.0                             ; set fan 2 value. Thermostatic control is turned on
+M950 F2 C"fan2" Q25000                                  ; create fan 2 (duet internal fan) on pin fan0 and set its frequency
+M106 P2 S1 H3 T30 L0.35 X1.0 B0.25                      ; set fan 2 value. Thermostatic control is turned on
 
 ; Tools
 M563 P0 D0 H1 F0                                        ; define tool 0
