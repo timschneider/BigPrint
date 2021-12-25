@@ -18,6 +18,7 @@ if (state.status == "busy" && move.currentMove.requestedSpeed > 0 ) || (state.st
   M112 ; emergency stop
   ; there is no way to cancle or stop the current move or even slow it down!
 elif state.status == "processing"
+  M581 T5 P2:3 S1 R0                                      ; configure E2:3 as door switch (door closed)
   M25 ; pause current print
 
 M203 Z30  ; slow down z movement
