@@ -43,7 +43,7 @@ M350 Z16 I1                                             ; configure microsteppin
 M350 X16 Y16 I1                                         ; configure microstepping without interpolation
 M92 X80 Y80 Z400 E807.5                                 ; set steps per mm
 
-M566 X540.0 Y540.0 Z18.00 E270.00 P1                    ; set maximum instantaneous speed changes (mm/min) and apply jerk on every move
+M566 X540.0 Y540.0 Z18.00 E180.00 P1                    ; set maximum instantaneous speed changes (mm/min) and apply jerk on every move
 M593 F24.8                                              ; cancle ringing at 24.8Hz
 M203 X14400.00 Y14400.00 Z1200.00 E7200.00              ; set maximum speeds (mm/min)
 M201 X1500.00 Y1500.00 Z72.00 E4200.00                  ; set accelerations (mm/s^2)
