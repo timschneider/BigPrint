@@ -48,7 +48,7 @@ M593 F24.8                                              ; cancle ringing at 24.8
 M203 X14400.00 Y14400.00 Z1200.00 E7200.00              ; set maximum speeds (mm/min)
 M201 X1500.00 Y1500.00 Z72.00 E4200.00                  ; set accelerations (mm/s^2)
 M204 P800 T1250                                         ; Set printing and travel accelerations
-M906 X1500 Y1500 Z2000:2000:2000 E1300 I30              ; set motor currents (mA) and motor idle factor in per cent
+M906 X1500 Y1500 Z2000 E1300 I30                        ; set motor currents (mA) and motor idle factor in per cent
 M84 S30                                                 ; Set idle timeout
 
 ; Axis Limits
@@ -77,6 +77,7 @@ M950 H0 C"nil"
 M950 H1 C"nil"
 
 ; Bed Heaters
+;M308 S0 P"e2temp" Y"thermistor" T100000 B4598 C8.68e-08 A"bed" ; MBL 136
 M308 S0 P"e2temp" Y"thermistor" T100000 B4092 A"bed"    ; configure sensor 0 as thermistor on pin e0temp
 M950 H0 C"duex.fan3" T0 Q10                             ; create bed heater output on duex.fan3 and map it to sensor 0 and set PWM 10Hz
 M307 H0 A65.4 C210.5 D1.0 S1.00 V24.4 B0                ; disable bang-bang mode for the left bed heater and set PWM limit
