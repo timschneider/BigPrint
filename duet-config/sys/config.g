@@ -11,7 +11,7 @@ M550 P"Meltingplot.MBL 133"                             ; set printer name
 M667 S1                                                 ; select CoreXY mode
 
 ; Network Ethernet
-M586 C"*"                                                ; allow CORS
+M586 C""                                                 ; disable CORS
 M551 P"meltingplot"                                      ; set password
 ;M552 P192.168.172.40 S1                                 ; enable network and set IP address
 ;M553 P255.255.255.0                                     ; set netmask
