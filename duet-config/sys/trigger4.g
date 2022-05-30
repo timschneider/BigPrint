@@ -14,7 +14,9 @@ G60 S5     ; save current position to slot #5
 
 ; move.currentMove.requestedSpeed > 0 this is also true for E only moves!
 
-if (state.status == "busy" && move.currentMove.requestedSpeed > 0 ) || (state.status == "processing" && ( move.axes[0].homed == false || move.axes[1].homed == false || move.axes[2].homed == false ))
+; state == busy and requestedSpeed >= is also true for extruder only moves
+; but it is very uncommon to move the extruder faster than 4 mm/sec
+if (state.status == "busy" && move.currentMove.requestedSpeed > 4.0 ) || (state.status == "processing" && ( move.axes[0].homed == false || move.axes[1].homed == false || move.axes[2].homed == false ))
   M112 ; emergency stop
   ; there is no way to cancle or stop the current move or even slow it down!
 elif state.status == "processing"
