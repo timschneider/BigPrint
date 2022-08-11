@@ -60,7 +60,7 @@ M574 X1 S1 P"xstop"                                     ; configure active-high 
 M574 Y2 S1 P"ystop"                                     ; configure active-high endstop for high end on Y via pin ystop
 ;M574 Z1 S2                                             ; configure Z-probe endstop for low end on Z
 M574 Z2 S4                                              ; configure sensorless endstop on high end of Z
-M591 D0 P1 C"e1stop" S1                                 ; enable filament sensor on E0 as active high
+M591 D0 P1 C"e1stop" S1                                 ; enable filament sensor on E1 as active high
 
 ; Led
 M950 P0 C"!exp.heater5"                                 ; Configure P0 as output for LED Strip
