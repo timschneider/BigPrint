@@ -8,7 +8,7 @@ G90                                                     ; send absolute coordina
 M83                                                     ; ...but relative extruder moves
 M550 P"Meltingplot.MBL 133"                             ; set printer name
 
-M667 S1                                                 ; select CoreXY mode
+M669 K1 S2 T1                                           ; select CoreXY mode
 
 ; Network Ethernet
 M586 C""                                                 ; disable CORS
@@ -44,7 +44,7 @@ M350 X16 Y16 I1                                         ; configure microsteppin
 M92 X80 Y80 Z400 E807.5                                 ; set steps per mm
 
 M566 X540.0 Y540.0 Z18.00 E180.00 P1                    ; set maximum instantaneous speed changes (mm/min) and apply jerk on every move
-M593 F24.8                                              ; cancle ringing at 24.8Hz
+M593 P"zvd" F19.7                                       ; cancle ringing at 19.7Hz
 M203 X14400.00 Y14400.00 Z1200.00 E3600.00              ; set maximum speeds (mm/min)
 M201 X1500.00 Y1500.00 Z72.00 E2500.00                  ; set accelerations (mm/s^2)
 M204 P800 T1250                                         ; Set printing and travel accelerations
@@ -77,8 +77,8 @@ M950 H0 C"nil"
 M950 H1 C"nil"
 
 ; Bed Heaters
-;M308 S0 P"e2temp" Y"thermistor" T100000 B4598 C8.68e-08 A"bed" ; MBL 136
-M308 S0 P"e2temp" Y"thermistor" T100000 B4092 A"bed"    ; configure sensor 0 as thermistor on pin e0temp
+M308 S0 P"e2temp" Y"thermistor" T100000 B4598 C8.68e-08 A"bed" ; MBL 136
+;M308 S0 P"e2temp" Y"thermistor" T100000 B4092 A"bed"    ; configure sensor 0 as thermistor on pin e0temp
 M950 H0 C"duex.fan3" T0 Q10                             ; create bed heater output on duex.fan3 and map it to sensor 0 and set PWM 10Hz
 M307 H0 A65.4 C210.5 D1.0 S1.00 V24.4 B0                ; disable bang-bang mode for the left bed heater and set PWM limit
 M140 P0 H0                                              ; map heater0 to bed
@@ -95,11 +95,11 @@ M570 H1 P5 T15 S10                                      ; Enable heater fault de
 M308 S3 Y"mcu-temp" A"mcu-temp"                         ; configure sensor 3 as temp sens for the mcu
 
 ; Fans
-M950 F0 C"fan0" Q1000                                   ; create fan 0 (cooling fan) on pin fan0 and set its frequency
+M950 F0 C"fan0" Q30000                                  ; create fan 0 (cooling fan) on pin fan0 and set its frequency
 M106 P0 S0 H-1                                          ; set fan 0 value. Thermostatic control is turned off
-M950 F1 C"fan1" Q250                                    ; create fan 1 (radiator fan) on pin fan1 and set its frequency
+M950 F1 C"fan1" Q30000                                  ; create fan 1 (radiator fan) on pin fan1 and set its frequency
 M106 P1 H2 T45 L1.0 X1.0 B0.0                           ; set fan 1 value. Thermostatic control is turned on
-M950 F2 C"fan2" Q25000                                  ; create fan 2 (duet internal fan) on pin fan0 and set its frequency
+M950 F2 C"fan2" Q30000                                  ; create fan 2 (duet internal fan) on pin fan0 and set its frequency
 M106 P2 S1 H3 T30 L0.35 X1.0 B0.25                      ; set fan 2 value. Thermostatic control is turned on
 
 ; Tools
