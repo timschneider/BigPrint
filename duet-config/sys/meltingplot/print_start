@@ -12,4 +12,8 @@ G90                                         ; use absolute coordinates
 
 M116                                        ; wait for all heaters
 
+G1 Z20                                      ; raise z=20mm
+G1 X{105-sensors.probes[0].offsets[0]} Y{move.kinematics.tiltCorrection.screwY[0]-sensors.probes[0].offsets[1]} F14400
+G1 Z5 G30                                   ; after z compensation probe z-distance again
+
 M98 P"0:/sys/meltingplot/prime_nozzle_0"    ; prime nozzle
