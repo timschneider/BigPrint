@@ -69,8 +69,8 @@ M42 P0 S0.25                                            ; Set LEDs to 25%
 ; ATX PS_ON
 ; M80 enable ATX power
 ; M81 disable ATX power
-; our PSU uses an inverted PS_ON logic which is currently not supported by firmware
-; do not use M80/M81 until the firmware is fixed
+; our PSU uses an inverted PS_ON logic
+M80 C"!pson" ; inverts the PS_ON output
 
 ; Heaters
 M950 H0 C"nil"
@@ -100,7 +100,7 @@ M106 P0 S0 H-1                                          ; set fan 0 value. Therm
 M950 F1 C"fan1" Q30000                                  ; create fan 1 (radiator fan) on pin fan1 and set its frequency
 M106 P1 H2 T45 L1.0 X1.0 B0.0                           ; set fan 1 value. Thermostatic control is turned on
 M950 F2 C"fan2" Q30000                                  ; create fan 2 (duet internal fan) on pin fan0 and set its frequency
-M106 P2 S1 H3 T30 L0.35 X1.0 B0.25                      ; set fan 2 value. Thermostatic control is turned on
+M106 P2 S1 H3 T30:50 L0.35 X1.0 B0.25                   ; set fan 2 value. Thermostatic control is turned on
 
 ; Tools
 M563 P0 D0 H1 F0                                        ; define tool 0
