@@ -2,7 +2,7 @@
 
 M203 Z1200.00                                           ; set maximum speeds (mm/min)
 M204 P800 T1250                                         ; Set printing and travel accelerations
-M906 X1500 Y1500 Z2000:2000:2000 E1300 I30              ; set motor currents (mA) and motor idle factor in per cent
+M906 X1500 Y1500 Z2000 E1300 I30                        ; set motor currents (mA) and motor idle factor in per cent
 M84 S30                                                 ; Set idle timeout
 
 M950 J0 C"^e0stop"                                      ; create e-stop
